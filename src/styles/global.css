@@ -1,0 +1,85 @@
+@charset "utf-8";
+
+@font-face {
+  font-family: 'Pretendard-Regular';
+  src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* 1. 기본 Reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+  font-family: 'Pretendard Variable', sans-serif;
+  font-size: 16px;
+  background-color: #fff;
+  color: #212529;
+} 
+
+/* 2. 링크와 리스트 초기화 */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+/* 3. 버튼 초기화 */
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* 4. 폼 요소 초기화 */
+input,
+textarea,
+select {
+  font: inherit;
+  border: none;
+  outline: none;
+  background: none;
+}
+
+/* 5. 공통 유틸 */
+.hidden {
+  display: none !important;
+}
+
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+:root {
+  /* Grayscale Colors */
+  --color-black: #212529;
+  --color-gray-500: #495057;
+  --color-gray-400: #868E96;
+  --color-gray-300: #ADB5BD;
+  --color-gray-200: #E9ECEF;
+  --color-gray-100: #F2F4F6;
+  --color-white: #ffffff;
+
+  /* Primary Colors */
+  --color-primary: #00C4C4;
+  --color-primary-light: #E7F9F9;
+  --color-primary-dark: #00B2B2;
+
+  /* Status Colors */
+  --color-warning: #FFBE1A;
+  --color-error: #F66F66;
+}

@@ -17,9 +17,10 @@ React를 사용하여 컴포넌트 단위로 구조화하고, 실제 서비스�
 ## 🛠 기술 스택
 
 - **Frontend**: React (Vite)
-- **Styling**: TailwindCSS, Styled-Components, CSS Modules
+- **Styling**: CSS Modules
 - **Routing**: React Router DOM  
 - **Icons**: React Icons  
+- **HTTP Client**: Axios  
 - **Design & Prototyping**: Figma  
 - **Version Control**: Git & GitHub
 

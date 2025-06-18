@@ -1,0 +1,42 @@
+/* Button.css */
+
+.btn {
+  padding: 10px 20px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Variant 스타일 */
+.primary {
+  background-color: var(--color-primary);
+  color: white;
+}
+
+.outline {
+  background-color: transparent;
+  border: 2px solid var(--color-primary);
+  color: var(--color-primary);
+}
+
+.secondary {
+  background-color: gray;
+  color: white;
+}
+
+/* Size 스타일 */
+.small {
+  padding: 6px 12px;
+  font-size: 0.8rem;
+}
+
+.medium {
+  padding: 10px 20px;
+  font-size: 1rem;
+}
+
+.large {
+  padding: 14px 28px;
+  font-size: 1.2rem;
+}

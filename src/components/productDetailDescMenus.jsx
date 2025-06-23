@@ -19,8 +19,8 @@ export default function productDetailDescMenus() {
     },
   ];
   return (
-    <div className="p-2">
-      <nav className="flex flex-row items-center justify-around">
+    <div className="p-2 bg-white">
+      <nav className="flex flex-row items-center justify-around border-none">
         {menus.map((menu, index) => (
             <Link to={menu.link} key={index}
             >{menu.name}</Link>

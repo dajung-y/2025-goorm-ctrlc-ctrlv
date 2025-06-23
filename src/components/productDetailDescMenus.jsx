@@ -1,9 +1,10 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function productDetailDescMenus() {
   const [selected, setSelectedMenu] = "스토리";
 
-  const menu = [
+  const menus = [
     {
       name: "스토리",
       link: "#",
@@ -18,9 +19,13 @@ export default function productDetailDescMenus() {
     },
   ];
   return (
-    <div>
-      <nav>
-        <Link to="#"></Link>
+    <div className="p-2">
+      <nav className="flex flex-row items-center justify-around">
+        {menus.map((menu, index) => (
+            <Link to={menu.link} key={index}
+            >{menu.name}</Link>
+        ))
+      }
       </nav>
     </div>
   );

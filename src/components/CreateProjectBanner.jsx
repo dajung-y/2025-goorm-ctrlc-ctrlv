@@ -6,7 +6,7 @@ import Button from './Button/Button';
 
 export default function CreateProjectBanner() {
   return (
-    <section className='w-full border'>
+    <section className='w-full px-4 py-8'>
       {/* 배너 모든 영역 클릭 가능 */}
       <div className='my-16 w-full max-w-[1280px] h-[153px] mx-auto cursor-pointer'>
         <Link to='/createproject'>

@@ -6,9 +6,9 @@ import Footer from './components/Footer';
 import MainPage from './pages/MainPage';
 import ProductListPage from './pages/ProductListPage';
 import ProductDetailPage from './pages/ProductDetailPage';
-import ProductStory from './components/ProductDetail/ProductStory';
-import ProductPolicy from './components/ProductDetail/ProductPolicy';
-import ProductReviews from './components/ProductDetail/ProductReviews';
+import ProductStory from './components/ProductDetail/Description/ProductStory';
+import ProductPolicy from './components/ProductDetail/Description/ProductPolicy';
+import ProductReviews from './components/ProductDetail/Description/ProductReviews';
 
 export default function App() {
   return (

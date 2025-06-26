@@ -20,7 +20,7 @@ export default function ProductDetailDesc() {
 
   return (
     // 왼쪽 상품 설명 컨테이너
-    <div
+    <section
       className="productDetail__content--desc w-full h-full"
       ref={detailScrollRef}
     >
@@ -32,12 +32,12 @@ export default function ProductDetailDesc() {
       {/* 메뉴바 클릭을 통해 바뀔 컨텐츠 
         스토리, 만족도, 문의 정책
       */}
-      <Outlet />
+      <Outlet/>
 
       {/* 여기에 useRef만들고 
         useEffect ScrolltoTop
         자동 스크롤이 잡힐 수 있도록
       */}
-    </div>
+    </section>
   );
 }

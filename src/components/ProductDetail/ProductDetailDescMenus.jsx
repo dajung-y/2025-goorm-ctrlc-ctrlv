@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-export default function ProductDetailDescMenus() {
+export default function ProductDetailDescMenus({detailScrollToTop}) {
   const [selected, setSelectedMenu] = useState("스토리");
 
   const menus = [
@@ -21,7 +21,7 @@ export default function ProductDetailDescMenus() {
 
   return (
     // 왼쪽 상품 설명 메뉴바
-    <div className="pt-3 pb-3 bg-white shadow-[0_0.5px_0px_rgba(0,0,0,0.10)] sticky top-0 z-10">
+    <div className="pt-3 pb-3 mt-3 mb-3 shadow-[0_1px_1px_rgba(0,0,0,0.10)] sticky top-0 z-10">
       <nav className="flex flex-row items-center justify-around border-none">
         {/*  메뉴 구성들은 map을 통해 생성 */}
         {menus.map((menu, index) => (
@@ -32,6 +32,7 @@ export default function ProductDetailDescMenus() {
             // active인 버튼 저장
             onClick={() => {
               setSelectedMenu(menu.name);
+              detailScrollToTop();
             }}
             // active인 버튼에 밑줄
             className={`p-2

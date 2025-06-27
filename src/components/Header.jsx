@@ -65,7 +65,7 @@ export default function Header() {
       </header>
 
       {/* GNB */}
-      <div className="sticky top-0 z-50 bg-white border-b border-gray-100 tracking-[-1px] text-[#212529]">
+      <div className=" z-50 bg-white border-b border-gray-100 tracking-[-1px] text-[#212529]">
         <div className="flex w-full max-w-[1300px] m-auto items-center ">
           <SlArrowLeft size="24" />
           <ul className='flex gap-10 items-center whitespace-nowrap overflow-hidden h-[52px]'>

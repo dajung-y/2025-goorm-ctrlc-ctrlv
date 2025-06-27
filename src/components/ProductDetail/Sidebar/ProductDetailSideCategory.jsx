@@ -1,5 +1,5 @@
 import React from "react";
-import share from "/src/assets/share.svg"
+import ShareIcon from "../../../assets/ShareIcon";
 
 export default function ProductDetailSideCategory() {
   return (
@@ -20,9 +20,10 @@ export default function ProductDetailSideCategory() {
       </article>
 
       {/* 공유버튼 */}
-      <button className="text-[12px] px-2 py-[3px] flex flex-row justify-center items-center rounded-full border-1 border-gray-600 ">
-        <img src={share} className="w-3 mr-1"></img>
-        공유
+      <button className="text-[12px] px-4 py-1 flex flex-row gap-1 justify-center items-center rounded-full border-1 border-gray-300 ">
+        {/* 공유 svg */}
+        <ShareIcon fill="#868e96" size={12}></ShareIcon>
+        <span className="text-gray-400">공유</span>
       </button>
     </section>
   );

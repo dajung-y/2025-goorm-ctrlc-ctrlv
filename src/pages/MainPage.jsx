@@ -1,10 +1,10 @@
 import React from 'react'
-import EarlyBirdProduct from '../components/EarlyBirdProduct'
+import MainContainer from '../components/MainContainer'
 
 export default function MainPage() {
   return (
     <div>
-      <EarlyBirdProduct />
+      <MainContainer />
     </div>
   )
 }

@@ -1,10 +1,6 @@
 import React from 'react'
 import { BsChevronRight } from "react-icons/bs";
 
-
-// fetch
-// 상태 저장
-
 export default function EarlyBirdCard({item}) {
   return (
 
@@ -35,8 +31,9 @@ export default function EarlyBirdCard({item}) {
         {/* 하단 영역 */}
         <div className='py-4 text-center text-[var(--color-gray-400)]'>
           지금 참여하기
-          <BsChevronRight className='inline'/>
-
+          <span className='pl-1'>
+            <BsChevronRight className='inline w-[19px] h-[19px]'/>
+          </span>
         </div>
         </div>
     </article>

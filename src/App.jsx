@@ -9,12 +9,12 @@ import ProductDetailPage from './pages/ProductDetailPage';
 import ProductStory from './components/ProductDetail/Description/ProductStory';
 import ProductPolicy from './components/ProductDetail/Description/ProductPolicy';
 import ProductReviews from './components/ProductDetail/Description/ProductReviews';
+import CreateProjectPage from './pages/CreateProjectPage';
 
 export default function App() {
   return (
     <div>
       <Header />
-
       <Routes>
         <Route
           path="/"
@@ -38,8 +38,11 @@ export default function App() {
           <Route path="reviews" element={<ProductReviews />} />
           <Route path="policy" element={<ProductPolicy />} />
         </Route>
+        <Route  
+          path='/createproject'
+          element={<CreateProjectPage />}
+        />
       </Routes>
-
       <Footer />
     </div>
   );

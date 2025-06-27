@@ -1,8 +1,8 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 
-import Header from './components/Header';
-import Footer from './components/Footer';
+import Header from './components/Header/Header';
+import Footer from './components/Footer/Footer';
 import MainPage from './pages/MainPage';
 import ProductListPage from './pages/ProductListPage';
 import ProductDetailPage from './pages/ProductDetailPage';
@@ -29,7 +29,7 @@ export default function App() {
           element={<ProductDetailPage />}
         >
           <Route index element={<ProductStory />} />
-          {/* index 속성 :  
+          {/* index 속성 :
             자식 라우트의 특정 경로를 명시하지 않았을 때
             index 속성을 가진 자식 라우트가 Outlet 위치에 렌더링함
           */}
@@ -38,7 +38,7 @@ export default function App() {
           <Route path="reviews" element={<ProductReviews />} />
           <Route path="policy" element={<ProductPolicy />} />
         </Route>
-        <Route  
+        <Route
           path='/createproject'
           element={<CreateProjectPage />}
         />

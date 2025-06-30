@@ -3,6 +3,7 @@ import ProductDetailDesc from "../components/ProductDetail/Description/ProductDe
 import ProductDetailSide from "../components/ProductDetail/Sidebar/ProductDetailSide";
 
 export default function ProductDetailPage() {
+
   return (
     // 상품 상세페이지 전체
     <main className="productDetail__container w-full h-full flex flex-row items-center justify-center pt-[40px]">

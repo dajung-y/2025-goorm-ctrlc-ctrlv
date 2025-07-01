@@ -6,7 +6,7 @@ export default function ProductDropDown({ items }) {
   const [isView, setIsView] = useState(false);
 
   return (
-    <artice className="sticky top-20 z-10">
+    <article>
       <ul onClick={() => setIsView(!isView)}>
         <div
           className={`flex flex-row items-center justify-between p-3 border-1  ${
@@ -25,7 +25,7 @@ export default function ProductDropDown({ items }) {
 
         {isView && <Dropdown items={items} />}
       </ul>
-    </artice>
+    </article>
   );
 }
 

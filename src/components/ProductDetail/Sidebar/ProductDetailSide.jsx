@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import ProductCategory from "./ProductCategory";
 import StarIcon from "../../../assets/StarIcon";
 import ProductPrice from "./ProductPrice";
@@ -10,6 +10,7 @@ import ProductInstantCoupon from "./ProductInstantCoupon";
 import { FaTruck } from "react-icons/fa";
 import { LiaCcDinersClub } from "react-icons/lia";
 import ProductDropDown from "./ProductDropDown";
+import ProductBuyMenus from "./ProductBuyMenus";
 
 export default function ProductDetailSide() {
   const [price, setPrice] = useState(49900);
@@ -36,9 +37,31 @@ export default function ProductDetailSide() {
     },
   ];
 
+  // 스크롤시 높이 조정
+  const [isSticky, setIsSticky] = useState(false);
+  const wrapperRef = useRef(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      const trigger = 100;
+
+      if (scrollY > trigger) {
+        setIsSticky(true);
+        wrapperRef.current.style.height = "calc(100% - 100px)";
+      } else {
+        setIsSticky(false);
+        wrapperRef.current.style.height = "auto";
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     // 사이드바
-    <section className="productDetail__side--category h-full">
+    <section className="productDetail__side--category flex flex-col h-full ">
       {/* 제품의 카테고리 */}
       <ProductCategory />
 
@@ -75,6 +98,7 @@ export default function ProductDetailSide() {
         <ProductInstantCoupon />
       </div>
 
+      {/* 배송 정보와 혜택 정보 */}
       <article className="flex flex-row gap-3 mt-6">
         <span className="text-gray-400">배송</span>
         <div className="flex flex-col">
@@ -112,13 +136,20 @@ export default function ProductDetailSide() {
       {/* 구분선 */}
       <div className="border-1 border-gray-200 mb-6 mt-6"></div>
 
-      {/* 물건 드롭다운 props : 물건 종류 목록 */}
-      <div className="mt-4">
-        <ProductDropDown items={products} />
-      </div>
-
-      <div>
-        
+      <div
+        ref={wrapperRef}
+        className={`flex flex-col bg-white ${
+          isSticky ? "h-[calc(100vh-100px)]" : "h-auto"
+        }`}
+      >
+        <div className="sticky top-20 z-10 bg-white">
+          <ProductDropDown />
+        </div>
+        <div
+          className={`mt-4  ${isSticky ? "mt-auto sticky bottom-10 z-20" : ""}`}
+        >
+          <ProductBuyMenus />
+        </div>
       </div>
     </section>
   );

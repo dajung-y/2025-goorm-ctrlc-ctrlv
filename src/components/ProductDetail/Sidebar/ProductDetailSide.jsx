@@ -9,14 +9,36 @@ import ProductInstantCoupon from "./ProductInstantCoupon";
 
 import { FaTruck } from "react-icons/fa";
 import { LiaCcDinersClub } from "react-icons/lia";
+import ProductDropDown from "./ProductDropDown";
 
 export default function ProductDetailSide() {
   const [price, setPrice] = useState(49900);
   const discount = 5000;
 
+  const products = [
+    {
+      id: 1,
+      name: "<짱구> 오또카지 후드티셔츠-멜란지 그레이",
+      price: 59900,
+      stock: true,
+    },
+    {
+      id: 2,
+      name: "<짱구>1992얼굴자수 스웨트팬츠-멜란지 그레이",
+      price: 49900,
+      stock: true,
+    },
+    {
+      id: 3,
+      name: "<짱구> 1992 얼굴자수 스웨트팬츠-크림",
+      price: 49900,
+      stock: true,
+    },
+  ];
+
   return (
     // 사이드바
-    <section className="productDetail__side--category">
+    <section className="productDetail__side--category h-full">
       {/* 제품의 카테고리 */}
       <ProductCategory />
 
@@ -76,12 +98,28 @@ export default function ProductDetailSide() {
         <div className="flex flex-col">
           <div className="flex flex-row items-center gap-2">
             <LiaCcDinersClub className="text-[var(--color-primary)] text-3xl" />
-            <span>서포터 클럽 <span className="text-[var(--color-primary-dark)]">3개월 무료 혜택</span> 받기</span>
+            <span>
+              서포터 클럽{" "}
+              <span className="text-[var(--color-primary-dark)]">
+                3개월 무료 혜택
+              </span>{" "}
+              받기
+            </span>
           </div>
         </div>
       </article>
 
+      {/* 구분선 */}
       <div className="border-1 border-gray-200 mb-6 mt-6"></div>
+
+      {/* 물건 드롭다운 props : 물건 종류 목록 */}
+      <div className="mt-4">
+        <ProductDropDown items={products} />
+      </div>
+
+      <div>
+        
+      </div>
     </section>
   );
 }

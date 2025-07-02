@@ -1,7 +1,7 @@
 import React from "react";
 import ShareIcon from "../../../assets/ShareIcon";
 
-export default function ProductDetailSideCategory() {
+export default function ProductCategory() {
   return (
     <section className="productDetail__side--category flex flex-row justify-between mt-2">
       {/* breadCrumbs */}

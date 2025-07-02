@@ -3,6 +3,7 @@ import ProductDetailDesc from "../components/ProductDetail/Description/ProductDe
 import ProductDetailSide from "../components/ProductDetail/Sidebar/ProductDetailSide";
 
 export default function ProductDetailPage() {
+
   return (
     // 상품 상세페이지 전체
     <main className="productDetail__container w-full h-full flex flex-row items-center justify-center pt-[40px]">
@@ -14,7 +15,8 @@ export default function ProductDetailPage() {
         </article>
 
         {/* 오른쪽 구매 정보 */}
-        <aside className="productDetail__content--right w-35/100 h-full">
+        {/* sticy 문제 -> 높이 부족 -> 부모의 높이와 동일하게 설정하기 : h-full 제거 및 self-stretch 추가 */}
+        <aside className="productDetail__content--right w-35/100 self-stretch">
           <ProductDetailSide />
         </aside>
       </section>

@@ -1,16 +1,15 @@
 import React, { useEffect, useRef, useState } from "react";
 import ProductCategory from "./ProductCategory";
-import StarIcon from "../../../assets/StarIcon";
 import ProductPrice from "./ProductPrice";
 import ProductParticipant from "./ProductParticipant";
 import ProductScore from "./ProductScore";
 import ProductFirstPurchaseCoupon from "./ProductFirstPurchaseCoupon";
 import ProductInstantCoupon from "./ProductInstantCoupon";
-
-import { FaTruck } from "react-icons/fa";
-import { LiaCcDinersClub } from "react-icons/lia";
 import ProductDropDown from "./ProductDropDown";
 import ProductBuyMenus from "./ProductBuyMenus";
+import ProductMaker from './ProductMaker';
+import { FaTruck } from "react-icons/fa";
+import { LiaCcDinersClub } from "react-icons/lia";
 
 export default function ProductDetailSide() {
   const [price, setPrice] = useState(49900);
@@ -136,6 +135,10 @@ export default function ProductDetailSide() {
       {/* 구분선 */}
       <div className="border-1 border-gray-200 mb-6 mt-6"></div>
 
+      <article className="mt-4">
+        <ProductMaker />
+      </article>
+
       <div
         ref={wrapperRef}
         className={`flex flex-col bg-white ${
@@ -143,7 +146,7 @@ export default function ProductDetailSide() {
         }`}
       >
         <div className="sticky top-20 z-10 bg-white">
-          <ProductDropDown />
+          <ProductDropDown items={products}/>
         </div>
         <div
           className={`mt-4  ${isSticky ? "mt-auto sticky bottom-10 z-20" : ""}`}

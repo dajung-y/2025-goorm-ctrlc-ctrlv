@@ -4,6 +4,12 @@ import { MdOutlineKeyboardArrowUp } from "react-icons/md";
 
 export default function ProductDropDown({ items }) {
   const [isView, setIsView] = useState(false);
+  const [selectedItem, setSelectedItem] = useState(null);
+
+    const handleItemClick = (item) => {
+    setSelectedItem(item); 
+    setIsView(false); 
+  };
 
   return (
     <article>
@@ -15,7 +21,8 @@ export default function ProductDropDown({ items }) {
               : "border-gray-300 rounded-md  "
           }`}
         >
-          상품 선택
+          {selectedItem ? selectedItem.name : "상품 선택"}
+
           {isView ? (
             <MdOutlineKeyboardArrowUp className="text-3xl" />
           ) : (
@@ -23,25 +30,26 @@ export default function ProductDropDown({ items }) {
           )}
         </div>
 
-        {isView && <Dropdown items={items} />}
+        {isView && <Dropdown items={items} onItemClick={handleItemClick} />}
       </ul>
     </article>
   );
 }
 
-function Dropdown({ items }) {
+function Dropdown({ items, onItemClick }) {
   return (
     <>
       {items.map((item, index) => (
         <li
           key={item.id}
           className={`flex flex-col border-1 pt-4 pb-4 pl-3 pr-3 border-[var(--color-primary)] border-t-gray-400
-          hover:bg-gray-100
-        ${
-          index === items.length - 1
-            ? "border-b-[var(--color-primary)] rounded-b-lg"
-            : "border-b-gray-300"
-        }`}
+            hover:bg-gray-100
+            ${
+              index === items.length - 1
+                ? "border-b-[var(--color-primary)] rounded-b-lg"
+                : "border-b-gray-200"
+            }`}
+          onClick={() => onItemClick(item)} // 클릭 시 핸들러 호출
         >
           <span className="mb-4">{item.name}</span>
           <span className="font-bold">

@@ -4,12 +4,13 @@ import { Route, Routes } from 'react-router-dom';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import MainPage from './pages/MainPage';
-import ProductListPage from './pages/ProductListPage';
+import FashionListPage from './pages/FashionListPage.jsx';
 import ProductDetailPage from './pages/ProductDetailPage';
 import ProductStory from './components/ProductDetail/Description/ProductStory';
 import ProductPolicy from './components/ProductDetail/Description/ProductPolicy';
 import ProductReviews from './components/ProductDetail/Description/ProductReviews';
 import CreateProjectPage from './pages/CreateProjectPage';
+import PetListPage from "./pages/PetListPage.jsx";
 
 export default function App() {
   return (
@@ -21,8 +22,12 @@ export default function App() {
           element={<MainPage />}
         />
         <Route
-          path="/list"
-          element={<ProductListPage />}
+            path="/list/fashion"
+            element={<FashionListPage />}
+        />
+        <Route
+            path="/list/pet"
+            element={<PetListPage />}
         />
         <Route
           path="/detail"

@@ -30,7 +30,7 @@ ctrlc-ctrlv
 ```bash
 ctrlc-ctrlv
 ├── public/
-│   └── products.json  
+│   └── fashionProducts.json  
 ├── src
 │   ├── assets
 │   │   └── icons
@@ -40,7 +40,7 @@ ctrlc-ctrlv
 │   │   └── ...
 │   ├── pages
 │   │   ├── MainPage.jsx
-│   │   ├── ProductListPage.jsx
+│   │   ├── FashionListPage.jsx
 │   │   ├── ProductDetailPage.jsx
 │   │   └── ...
 │   ├── App.jsx                 

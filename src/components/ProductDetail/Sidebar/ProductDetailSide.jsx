@@ -141,9 +141,10 @@ export default function ProductDetailSide() {
 
       <div
         ref={wrapperRef}
-        className={`flex flex-col bg-white ${
+        className={`flex flex-col bg-white mt-6 ${
           isSticky ? "h-[calc(100vh-100px)]" : "h-auto"
         }`}
+        
       >
         <div className="sticky top-20 z-10 bg-white">
           <ProductDropDown items={products}/>

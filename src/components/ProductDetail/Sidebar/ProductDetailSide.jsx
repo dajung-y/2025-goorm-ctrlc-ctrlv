@@ -20,6 +20,8 @@ export default function ProductDetailSide({ product }) {
   const wrapperRef = useRef(null);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+
     const handleScroll = () => {
       const scrollY = window.scrollY;
       const trigger = 500;
@@ -99,7 +101,8 @@ export default function ProductDetailSide({ product }) {
               <span>배송비 {product.deliverFee.toLocaleString("ko-KR")}원</span>
             )}
             <span>
-              (제주/도서산간) {product.difficultDeliverFee.toLocaleString("ko-KR")}원
+              (제주/도서산간){" "}
+              {product.difficultDeliverFee.toLocaleString("ko-KR")}원
             </span>
           </div>
         </div>
@@ -126,9 +129,9 @@ export default function ProductDetailSide({ product }) {
 
       {/* 메이커 정보 */}
       <article className="mt-4">
-        <ProductMaker maker={product}/>
+        <ProductMaker maker={product} />
       </article>
-      
+
       {/* 상품 옵션과 구매 버튼 */}
       <div
         ref={wrapperRef}
@@ -145,7 +148,7 @@ export default function ProductDetailSide({ product }) {
         <div
           className={`mt-4  ${isSticky ? "mt-auto sticky bottom-10 z-20" : ""}`}
         >
-          <ProductBuyMenus liked={product.likedCount}/>
+          <ProductBuyMenus liked={product.likedCount} />
         </div>
       </div>
     </section>

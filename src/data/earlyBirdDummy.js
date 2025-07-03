@@ -80,20 +80,20 @@ export const dummyProducts = [
     composition: '보조배터리, 케이블, 파우치',
     price: 55000
   },
-  // {
-  //   image: 'https://cdn2.wadiz.kr/2024/04/03/28c5ec15-8699-41f7-9bdd-7cf63fe9a362.jpeg/wadiz/resize/400/format/jpg/quality/85/',
-  //   category: '프리오더',
-  //   title: '휴대용 전동 칫솔',
-  //   participants: 7,
-  //   composition: '칫솔 본체, 칫솔모 2개, 충전독',
-  //   price: 48000
-  // },
-  // {
-  //   image: 'https://cdn2.wadiz.kr/2024/04/30/e1c7463a-f6d7-4cd4-bb6d-30b207341314.jpg/wadiz/resize/400/format/jpg/quality/85/',
-  //   category: '프리오더',
-  //   title: '미니 블렌더',
-  //   participants: 11,
-  //   composition: '블렌더 본체, 텀블러 2개, 세척도구',
-  //   price: 67000
-  // }
+  {
+    image: 'https://cdn2.wadiz.kr/2024/04/03/28c5ec15-8699-41f7-9bdd-7cf63fe9a362.jpeg/wadiz/resize/400/format/jpg/quality/85/',
+    category: '프리오더',
+    title: '휴대용 전동 칫솔',
+    participants: 7,
+    composition: '칫솔 본체, 칫솔모 2개, 충전독',
+    price: 48000
+  },
+  {
+    image: 'https://cdn2.wadiz.kr/2024/04/30/e1c7463a-f6d7-4cd4-bb6d-30b207341314.jpg/wadiz/resize/400/format/jpg/quality/85/',
+    category: '프리오더',
+    title: '미니 블렌더',
+    participants: 11,
+    composition: '블렌더 본체, 텀블러 2개, 세척도구',
+    price: 67000
+  }
 ];

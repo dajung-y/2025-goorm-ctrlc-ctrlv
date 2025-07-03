@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import ProductCard from './ProductCard'
-import product from '../data/fashionProducts.json';
+import product from '../data/petProducts.json';
 import { BsChevronRight } from "react-icons/bs";
 import { BsChevronLeft } from "react-icons/bs";
 

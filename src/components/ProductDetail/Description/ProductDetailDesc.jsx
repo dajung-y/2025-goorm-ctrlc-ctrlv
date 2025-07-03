@@ -9,7 +9,7 @@ export default function ProductDetailDesc({product}) {
   const detailScrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: "smooth", // 부드러운 스크롤 효과
+      behavior: "smooth",
     });
   };
   //scrollIntoView()
@@ -28,7 +28,7 @@ export default function ProductDetailDesc({product}) {
       {/* 이미지 슬라이더 */}
       <ProductDetailSlider img={product.image}/>
       {/* 메뉴바 */}
-      <ProductDetailDescMenus detailScrollToTop={detailScrollToTop}/>
+      <ProductDetailDescMenus detailScrollToTop={detailScrollToTop} reviewCount={product.reviewCount}/>
 
       {/* 메뉴바 클릭을 통해 바뀔 컨텐츠 
         스토리, 만족도, 문의 정책

@@ -22,7 +22,7 @@ export default function ProductDetailSide({ product }) {
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
-      const trigger = 300;
+      const trigger = 500;
 
       if (scrollY > trigger) {
         setIsSticky(true);
@@ -124,20 +124,24 @@ export default function ProductDetailSide({ product }) {
       {/* 구분선 */}
       <div className="border-1 border-gray-200 mb-6 mt-6"></div>
 
+      {/* 메이커 정보 */}
       <article className="mt-4">
         <ProductMaker maker={product}/>
       </article>
-
+      
+      {/* 상품 옵션과 구매 버튼 */}
       <div
         ref={wrapperRef}
         className={`flex flex-col bg-white mt-6 ${
           isSticky ? "h-[calc(100vh-100px)]" : "h-auto"
         }`}
       >
+        {/* 옵션 드롭다운 */}
         <div className="sticky top-20 z-10 bg-white">
           <ProductDropDown items={product.options} />
         </div>
         <div className="flex-grow"></div>
+        {/* 상품 좋아요, 구매, 선물 버튼 */}
         <div
           className={`mt-4  ${isSticky ? "mt-auto sticky bottom-10 z-20" : ""}`}
         >

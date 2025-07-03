@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-export default function ProductDetailDescMenus({detailScrollToTop}) {
+export default function ProductDetailDescMenus({
+  detailScrollToTop,
+  reviewCount,
+}) {
   const [selected, setSelectedMenu] = useState("스토리");
 
   const menus = [
@@ -11,6 +14,7 @@ export default function ProductDetailDescMenus({detailScrollToTop}) {
     },
     {
       name: "만족도",
+      detail: reviewCount,
       link: "reviews",
     },
     {
@@ -35,10 +39,13 @@ export default function ProductDetailDescMenus({detailScrollToTop}) {
               detailScrollToTop();
             }}
             // active인 버튼에 밑줄
-            className={`p-2
+            className={`p-2 flex flex-row items-center
               ${selected === menu.name ? "border-b-2" : ""} `}
           >
             {menu.name}
+            {menu.detail && (
+              <span className="ml-1 text-[14px] text-[var(--color-primary)]">{menu.detail}</span>
+            )}
           </Link>
         ))}
       </nav>

@@ -10,7 +10,7 @@ export default function ProductDropDown({ items }) {
   const handleItemClick = (item) => {
     setSelectedItem(item);
     setIsView(false);
-  }; 
+  };
 
   return (
     // 드롭다운
@@ -19,10 +19,11 @@ export default function ProductDropDown({ items }) {
         <div
           className={`flex flex-row items-center justify-between p-3 border-1  ${
             isView
-              ? "border-[var(--color-primary)] border-b-gray-300 rounded-t-lg"
+              ? "border-[var(--color-primary)] border-b-gray-300 rounded-t-md"
               : "border-gray-300 rounded-md  "
           }`}
         >
+          {/* 드롭다운 상단에 보일 이름 */}
           {selectedItem ? selectedItem.name : "상품 선택"}
 
           {isView ? (
@@ -44,7 +45,7 @@ function Dropdown({ items, onItemClick }) {
       {items.map((item, index) => (
         <li
           key={item.id}
-          className={`flex flex-col border-1 pt-4 pb-4 pl-3 pr-3 border-[var(--color-primary)] border-t-gray-400
+          className={`flex flex-col border-1 pt-4 pb-4 pl-3 pr-3 border-[var(--color-primary)] border-t-gray-300
             hover:bg-gray-100
             ${
               index === items.length - 1

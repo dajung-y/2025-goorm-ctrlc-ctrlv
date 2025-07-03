@@ -17,12 +17,12 @@ export default function ProductDetailPage() {
       setProduct(foundProduct);
 
     } else {
-      setProduct(null); // 또는 에러 상태 설정
+      setProduct(null);
     }
   }, [productId]); 
 
   if (!product) {
-    return <div>상품 정보를 불러오는 중이거나 상품을 찾을 수 없습니다.</div>;
+    return <div className="flex flex-row items-center justify-center w-full h-[50vh]">상품 정보를 불러오는 중이거나 상품을 찾을 수 없습니다.</div>;
   }
 
   return (

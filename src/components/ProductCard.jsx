@@ -14,8 +14,10 @@ export default function ProductCard({product}) {
     }
 
     // 찜 버튼 누르기
-    const handleLike =() => {
+    const handleLike =(e) => {
+        e.stopPropagation(); // 이벤트 버블링 중지
         alert('로그인이 필요합니다');
+        return;
     }
     return (
         // detail 이동 추가

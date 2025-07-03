@@ -8,6 +8,7 @@ const simpleProduct = product.map(item => ({
 
     id: item.id,
     title: item.title,
+    maker: item.maker,
     price: item.price,
     rating: item.rating,
     reviewCount: item.reviewCount,

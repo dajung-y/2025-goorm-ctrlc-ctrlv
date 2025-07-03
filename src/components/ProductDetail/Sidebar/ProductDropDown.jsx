@@ -6,12 +6,14 @@ export default function ProductDropDown({ items }) {
   const [isView, setIsView] = useState(false);
   const [selectedItem, setSelectedItem] = useState(null);
 
-    const handleItemClick = (item) => {
-    setSelectedItem(item); 
-    setIsView(false); 
-  };
+  // 선택한 옵션
+  const handleItemClick = (item) => {
+    setSelectedItem(item);
+    setIsView(false);
+  }; 
 
   return (
+    // 드롭다운
     <article>
       <ul onClick={() => setIsView(!isView)}>
         <div
@@ -35,7 +37,7 @@ export default function ProductDropDown({ items }) {
     </article>
   );
 }
-
+// 옵션별 드롭다운 구성
 function Dropdown({ items, onItemClick }) {
   return (
     <>
@@ -51,7 +53,14 @@ function Dropdown({ items, onItemClick }) {
             }`}
           onClick={() => onItemClick(item)} // 클릭 시 핸들러 호출
         >
+          {/* 옵션별 상품 이름 */}
           <span className="mb-4">{item.name}</span>
+
+          {/* 옵션별 상품 설명 */}
+          {item.desc !== "" && (
+            <span className="mb-4 text-[12px] text-gray-400">{item.desc}</span>
+          )}
+          {/* 옵션별 상품 가격 */}
           <span className="font-bold">
             {item.price.toLocaleString("ko-KR")}원
           </span>

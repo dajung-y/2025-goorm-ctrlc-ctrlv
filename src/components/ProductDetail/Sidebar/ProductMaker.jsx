@@ -54,7 +54,8 @@ export default function ProductMaker({ maker }) {
           </button>
         </section>
       </article>
-
+      
+      {/* 메이커 만족도와 리뷰 수 */}
       <article className="flex flex-col gap-4 mt-4 text-[14px]">
         <section className="flex flex-row items-center gap-2 justify-between">
           <div className="flex flex-row items-center gap-2">
@@ -70,10 +71,16 @@ export default function ProductMaker({ maker }) {
           </div>
           <span className="text-gray-300">펀딩·프리오더·스토어 합산</span>
         </section>
-        <section className="flex flex-row items-center gap-2">
-          <FaWonSign className="text-[var(--color-primary)]" />
-          <span>누적 펀딩액 {maker.makerTotalFunding}</span>
-        </section>
+
+        {/* 메이커 누적 펀딩액 */}
+        {maker.makerTotalFunding !== "" && (
+          <section className="flex flex-row items-center gap-2">
+            <FaWonSign className="text-[var(--color-primary)]" />
+            <span>누적 펀딩액 {maker.makerTotalFunding}</span>
+          </section>
+        )}
+
+        {/* 메이커 서포터 수 */}
         <section className="flex flex-row items-center gap-2">
           <PiUserFill className="text-[var(--color-primary)]" />
           <span>서포터 {maker.makerSupporter.toLocaleString("ko-KR")}명</span>

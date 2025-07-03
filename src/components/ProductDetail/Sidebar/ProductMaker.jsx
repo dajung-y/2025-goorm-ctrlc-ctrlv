@@ -7,6 +7,7 @@ import { PiUserFill } from "react-icons/pi";
 
 export default function ProductMaker({ maker }) {
   return (
+    // 메이커 정보
     <section className="border-1 border-gray-200 rounded-md p-4">
       <article className="maker__award flex flex-row gap-2">
         {/* 슈퍼메이커 */}
@@ -50,7 +51,7 @@ export default function ProductMaker({ maker }) {
           {/* 메이커 팔로우 버튼 */}
           <button className="flex flex-row items-center justify-center gap-1 bg-[var(--color-primary)] text-white rounded-sm text-[12px] p-2">
             <CiHeart className="text-xl" />
-            <span className="font-medium">팔로우</span>
+            <span className="text-[14px]">팔로우</span>
           </button>
         </section>
       </article>
@@ -76,7 +77,7 @@ export default function ProductMaker({ maker }) {
         {maker.makerTotalFunding !== "" && (
           <section className="flex flex-row items-center gap-2">
             <FaWonSign className="text-[var(--color-primary)]" />
-            <span>누적 펀딩액 {maker.makerTotalFunding}</span>
+            <span>누적 펀딩액 {maker.makerTotalFunding}+</span>
           </section>
         )}
 

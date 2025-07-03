@@ -96,7 +96,7 @@ export default function ProductDetailSide({ product }) {
             {product.deliverFee === 0 ? (
               <span>무료배송</span>
             ) : (
-              <span>{product.deliverFee.toLocaleString("ko-KR")}원</span>
+              <span>배송비 {product.deliverFee.toLocaleString("ko-KR")}원</span>
             )}
             <span>
               (제주/도서산간) {product.difficultDeliverFee.toLocaleString("ko-KR")}원
@@ -141,7 +141,7 @@ export default function ProductDetailSide({ product }) {
         <div
           className={`mt-4  ${isSticky ? "mt-auto sticky bottom-10 z-20" : ""}`}
         >
-          <ProductBuyMenus />
+          <ProductBuyMenus liked={product.likedCount}/>
         </div>
       </div>
     </section>

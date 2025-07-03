@@ -5,22 +5,25 @@ import { CiHeart } from "react-icons/ci";
 import { FaWonSign } from "react-icons/fa6";
 import { PiUserFill } from "react-icons/pi";
 
-export default function ProductMaker({maker}) {
-
+export default function ProductMaker({ maker }) {
   return (
     <section className="border-1 border-gray-200 rounded-md p-4">
       <article className="maker__award flex flex-row gap-2">
         {/* 슈퍼메이커 */}
-        {maker.makerIsSuperMaker && <div className="flex flex-row items-center justify-center gap-1 bg-black text-white rounded-sm text-[12px] p-2">
-          <FaStar />
-          <span className="font-medium">슈퍼메이커</span>
-        </div>}
+        {maker.makerIsSuperMaker && (
+          <div className="flex flex-row items-center justify-center gap-1 bg-black text-white rounded-sm text-[12px] p-2">
+            <FaStar />
+            <span className="font-medium">슈퍼메이커</span>
+          </div>
+        )}
 
         {/* 어워즈 */}
-        {maker.makerIsTop100 && <div className="flex flex-row items-center justify-center gap-1 bg-[var(--color-primary)] text-white rounded-sm text-[12px] p-2">
-          <PiMedalFill />
-          <span className="font-medium">어워즈 TOP100</span>
-        </div>}
+        {maker.makerIsTop100 && (
+          <div className="flex flex-row items-center justify-center gap-1 bg-[var(--color-primary)] text-white rounded-sm text-[12px] p-2">
+            <PiMedalFill />
+            <span className="font-medium">어워즈 TOP100</span>
+          </div>
+        )}
       </article>
 
       {/* 프로필 영역 */}
@@ -58,14 +61,18 @@ export default function ProductMaker({maker}) {
             <FaStar className="text-[var(--color-primary)]" />
             <span>
               만족도 {maker.makerRating.toFixed(1)}
-              <span className="text-gray-300"> ( {maker.makerReviewCount}+개 ) </span>
+              <span className="text-gray-300">
+                {" "}
+                ( {maker.makerReviewCount}
+                {maker.makerReviewCount >= 999 ? <span>+</span> : null}개 ){" "}
+              </span>
             </span>
           </div>
           <span className="text-gray-300">펀딩·프리오더·스토어 합산</span>
         </section>
         <section className="flex flex-row items-center gap-2">
           <FaWonSign className="text-[var(--color-primary)]" />
-          <span>누적 펀딩액 {maker.makerTotalFunding}+</span>
+          <span>누적 펀딩액 {maker.makerTotalFunding}</span>
         </section>
         <section className="flex flex-row items-center gap-2">
           <PiUserFill className="text-[var(--color-primary)]" />

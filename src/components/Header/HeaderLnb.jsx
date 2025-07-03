@@ -27,7 +27,7 @@ export default function HeaderLnb({ isHoverCategory }) {
   const items = lnbList[isHoverCategory] || [];
 
   return (
-    <div className='absolute w-full min-h-[200px] bg-[var(--color-gray-50)]'>
+    <div className='absolute w-full min-h-[200px] bg-[var(--color-gray-50)] z-50'>
       <div className="w-full max-w-[1280px] m-auto p-4 border-t border-[var(--color-gray-100)] text-sm">
         <div className='grid grid-cols-[repeat(4,_170px)] gap-x-10'>
           {

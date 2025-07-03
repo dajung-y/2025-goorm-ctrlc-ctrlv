@@ -4,8 +4,13 @@ import { FaStar } from "react-icons/fa";
 
 export default function ProductCard({product}) {
     console.log(product.image);
+
+    // 찜 버튼 누르기
+    const handleLike =() => {
+        alert('로그인이 필요합니다');
+    }
     return (
-        <div className="w-[280px] overflow-hidden bg-white">
+        <div className="w-[280px] overflow-hidden bg-white cursor-pointer">
             {/* 이미지 영역 */}
             <div className="relative w-full h-[160px] overflow-hidden rounded-[10px]">
                 <img
@@ -13,7 +18,8 @@ export default function ProductCard({product}) {
                     src={product.image}
                     alt={product.title}
                 />
-                <button className="absolute top-2 right-2">
+                <button className="absolute top-2 right-2"
+                        onClick={handleLike}>
                     <FaRegHeart style={{color: 'white', fontSize: '18px'}} />
                 </button>
             </div>

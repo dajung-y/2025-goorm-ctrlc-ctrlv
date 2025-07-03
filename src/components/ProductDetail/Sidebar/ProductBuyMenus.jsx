@@ -1,7 +1,7 @@
 import React from "react";
 import { CiHeart } from "react-icons/ci";
 
-export default function ProductBuyMenus() {
+export default function ProductBuyMenus({liked}) {
   return (
     <article className="flex flex-row gap-4" >
       {/* 좋아요 버튼 */}
@@ -10,7 +10,7 @@ export default function ProductBuyMenus() {
           <CiHeart className="text-3xl" />
         </button>
         {/* 좋아요한 사람들의 숫자 */}
-        <span className="text-sm">{549}</span>
+        <span className="text-[10px]">{liked.toLocaleString("ko-KR")}</span>
       </div>
       {/* 선물하기, 구매하기 버튼 */}
       <div className="flex flex-row gap-2 w-full">

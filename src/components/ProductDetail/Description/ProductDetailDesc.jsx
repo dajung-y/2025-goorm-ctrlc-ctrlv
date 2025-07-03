@@ -3,7 +3,7 @@ import ProductDetailSlider from "./ProductDetailSlider";
 import ProductDetailDescMenus from "./ProductDetailDescMenus";
 import { Outlet } from "react-router-dom";
 
-export default function ProductDetailDesc() {
+export default function ProductDetailDesc({product}) {
   const detailScrollRef = useRef(null);
 
   const detailScrollToTop = () => {
@@ -16,6 +16,7 @@ export default function ProductDetailDesc() {
 
   useEffect(() => {
     detailScrollToTop();
+    console.log(product)
   }, []);
 
   return (
@@ -25,7 +26,7 @@ export default function ProductDetailDesc() {
       ref={detailScrollRef}
     >
       {/* 이미지 슬라이더 */}
-      <ProductDetailSlider />
+      <ProductDetailSlider img={product.image}/>
       {/* 메뉴바 */}
       <ProductDetailDescMenus detailScrollToTop={detailScrollToTop}/>
 

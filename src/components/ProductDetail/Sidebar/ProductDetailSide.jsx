@@ -1,41 +1,19 @@
 import React, { useEffect, useRef, useState } from "react";
 import ProductCategory from "./ProductCategory";
-import StarIcon from "../../../assets/StarIcon";
 import ProductPrice from "./ProductPrice";
 import ProductParticipant from "./ProductParticipant";
 import ProductScore from "./ProductScore";
 import ProductFirstPurchaseCoupon from "./ProductFirstPurchaseCoupon";
 import ProductInstantCoupon from "./ProductInstantCoupon";
-
-import { FaTruck } from "react-icons/fa";
-import { LiaCcDinersClub } from "react-icons/lia";
 import ProductDropDown from "./ProductDropDown";
 import ProductBuyMenus from "./ProductBuyMenus";
+import ProductMaker from "./ProductMaker";
+import { FaTruck } from "react-icons/fa";
+import { LiaCcDinersClub } from "react-icons/lia";
 
-export default function ProductDetailSide() {
-  const [price, setPrice] = useState(49900);
+export default function ProductDetailSide({ product }) {
+  const [price, setPrice] = useState(product.price);
   const discount = 5000;
-
-  const products = [
-    {
-      id: 1,
-      name: "<짱구> 오또카지 후드티셔츠-멜란지 그레이",
-      price: 59900,
-      stock: true,
-    },
-    {
-      id: 2,
-      name: "<짱구>1992얼굴자수 스웨트팬츠-멜란지 그레이",
-      price: 49900,
-      stock: true,
-    },
-    {
-      id: 3,
-      name: "<짱구> 1992 얼굴자수 스웨트팬츠-크림",
-      price: 49900,
-      stock: true,
-    },
-  ];
 
   // 스크롤시 높이 조정
   const [isSticky, setIsSticky] = useState(false);
@@ -44,7 +22,7 @@ export default function ProductDetailSide() {
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
-      const trigger = 100;
+      const trigger = 300;
 
       if (scrollY > trigger) {
         setIsSticky(true);
@@ -63,7 +41,10 @@ export default function ProductDetailSide() {
     // 사이드바
     <section className="productDetail__side--category flex flex-col h-full ">
       {/* 제품의 카테고리 */}
-      <ProductCategory />
+      <ProductCategory
+        category={product.category}
+        subCategory={product.subCategory}
+      />
 
       {/* 와디즈 only */}
       <article className="mt-3">
@@ -74,15 +55,18 @@ export default function ProductDetailSide() {
 
       {/* 제품명 */}
       <h3 className="productDetail__side--title text-xl mt-3">
-        [짱구] 세트로도 즐겨요#댄꼼마 짱구 오또카지 후드&스웨트팬츠(2컬러)
+        {product.title}
       </h3>
 
       {/* 만족도 & 참여자 */}
       <article className="productDetail__side--prticipant flex flex-row items-center mt-3">
         {/* 만족도, props : 만족도와 리뷰어 수 */}
-        <ProductScore score={4.6} reviewers={7} />
+        <ProductScore
+          rating={product.rating}
+          reviewCount={product.reviewCount}
+        />
         {/* 참여자 수, props: 참여자 수*/}
-        <ProductParticipant ProductParticipant={117} />
+        <ProductParticipant ProductParticipant={product.participants} />
       </article>
 
       {/* 가격, props : 원 가격*/}
@@ -109,9 +93,13 @@ export default function ProductDetailSide() {
 
           <span>평일 16시 전 주문하면 오늘 출발</span>
           <div className="flex flex-row items-center gap-2 text-gray-400">
-            <span>무료배송</span>
+            {product.deliverFee === 0 ? (
+              <span>무료배송</span>
+            ) : (
+              <span>배송비 {product.deliverFee.toLocaleString("ko-KR")}원</span>
+            )}
             <span>
-              (제주/도서산간) {parseInt("5000").toLocaleString("ko-KR")}원
+              (제주/도서산간) {product.difficultDeliverFee.toLocaleString("ko-KR")}원
             </span>
           </div>
         </div>
@@ -136,19 +124,24 @@ export default function ProductDetailSide() {
       {/* 구분선 */}
       <div className="border-1 border-gray-200 mb-6 mt-6"></div>
 
+      <article className="mt-4">
+        <ProductMaker maker={product}/>
+      </article>
+
       <div
         ref={wrapperRef}
-        className={`flex flex-col bg-white ${
+        className={`flex flex-col bg-white mt-6 ${
           isSticky ? "h-[calc(100vh-100px)]" : "h-auto"
         }`}
       >
         <div className="sticky top-20 z-10 bg-white">
-          <ProductDropDown />
+          <ProductDropDown items={product.options} />
         </div>
+        <div className="flex-grow"></div>
         <div
           className={`mt-4  ${isSticky ? "mt-auto sticky bottom-10 z-20" : ""}`}
         >
-          <ProductBuyMenus />
+          <ProductBuyMenus liked={product.likedCount}/>
         </div>
       </div>
     </section>

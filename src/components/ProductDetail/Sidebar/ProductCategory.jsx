@@ -1,13 +1,13 @@
 import React from "react";
 import ShareIcon from "../../../assets/ShareIcon";
 
-export default function ProductCategory() {
+export default function ProductCategory({category, subCategory}) {
   return (
     <section className="productDetail__side--category flex flex-row justify-between mt-2">
       {/* breadCrumbs */}
       <article className="productDetail_side--breadcrumbs text-gray-400 flex flex-row justify-center">
         {/* 대분류 */}
-        <span className="product__side--major pr-2">애니메이션</span>
+        <span className="product__side--major pr-2">{category}</span>
         <span className="pr-2">&gt;</span>
 
         {/* 소분류 */}
@@ -15,7 +15,7 @@ export default function ProductCategory() {
           <span className="text-[#00C4C4]">#</span>
 
           {/* 소분류 이름 */}
-          <span>세트</span>
+          <span>{subCategory}</span>
         </span>
       </article>
 

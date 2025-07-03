@@ -31,7 +31,7 @@ export default function App() {
             element={<PetListPage />}
         />
         <Route
-          path="/detail"
+          path="/detail/:id"
           element={<ProductDetailPage />}
         >
           <Route index element={<ProductStory />} />

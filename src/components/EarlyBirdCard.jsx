@@ -25,7 +25,7 @@ export default function EarlyBirdCard({item}) {
           {/* 정보, 가격 박스 */}
           <div className='p-3 border border-[var(--color-gray-200)]'>
             <p>{item.composition}</p>
-            <p className='font-bold'>{item.price}원</p>
+            <p className='font-bold'>{(item.price).toLocaleString()}원</p>
           </div> 
         </div>
         {/* 하단 영역 */}

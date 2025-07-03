@@ -37,7 +37,7 @@ export default function ProductCard({product}) {
 
             {/* 텍스트 정보 */}
             <div className="p-3">
-                <p className="text-[#00C4C4] font-bold text-[18px] mb-1">{product.price}</p>
+                <p className="text-[#00C4C4] font-bold text-[18px] mb-1">{Number(product.price).toLocaleString()}원</p>
                 <p className="text-[14px] text-[#222] mb-1 leading-snug">
                     {product.title}
                 </p>

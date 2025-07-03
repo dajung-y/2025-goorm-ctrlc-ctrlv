@@ -13,26 +13,29 @@ export default function ProductCard({ product }) {
     navigate(`/detail/${product.id}`);
   }
 
-  // 찜 버튼 누르기
-  const handleLike = () => {
-    alert('로그인이 필요합니다');
-  }
-  return (
-    // detail 이동 추가
-    <div className="w-[280px] overflow-hidden bg-white cursor-pointer"
-      onClick={handleMoveDetail}>
-      {/* 이미지 영역 */}
-      <div className="relative w-full h-[160px] overflow-hidden rounded-[10px]">
-        <img
-          className="w-full h-full object-cover"
-          src={product.image}
-          alt={product.title}
-        />
-        <button className="absolute top-2 right-2"
-          onClick={handleLike}>
-          <FaRegHeart style={{ color: 'white', fontSize: '18px' }} />
-        </button>
-      </div>
+
+    // 찜 버튼 누르기
+    const handleLike =(e) => {
+        e.stopPropagation(); // 이벤트 버블링 중지
+        alert('로그인이 필요합니다');
+        return;
+    }
+    return (
+        // detail 이동 추가
+        <div className="w-[280px] overflow-hidden bg-white cursor-pointer"
+             onClick={handleMoveDetail}> 
+            {/* 이미지 영역 */}
+            <div className="relative w-full h-[160px] overflow-hidden rounded-[10px]">
+                <img
+                    className="w-full h-full object-cover"
+                    src={product.image}
+                    alt={product.title}
+                />
+                <button className="absolute top-2 right-2"
+                        onClick={handleLike}>
+                    <FaRegHeart style={{color: 'white', fontSize: '18px'}} />
+                </button>
+            </div>
 
 
       {/* 텍스트 정보 */}

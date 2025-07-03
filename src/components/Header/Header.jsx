@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import HeaderGnb from './HeaderGnb'
 import HeaderMore from './HeaderMore'
@@ -126,7 +126,7 @@ const Util = ({ isShowModal, setIsShowModal }) => (
               <Link
                 key={i}
                 to={item.href}
-                className='flex items-center text-sm text-white rounded-sm px-4 h-[40px] bg-[var(--color-primary)]'
+                className='flex items-center text-sm text-white rounded-sm px-4 h-[40px] bg-[var(--color-primary)] hover:bg-[var(--color-primary-dark)]'
               >
                 {item.label}
               </Link>
@@ -145,12 +145,30 @@ export default function Header() {
   const location = useLocation();
   const isListPage = location.pathname.startsWith('/list');
   const isDetailPage = location.pathname.startsWith('/detail');
+  const isCreateProjectPage = location.pathname === '/createproject';
   // 중첩 라우트라서 startsWith() 사용해야함
   // startsWith(검색할 문자열)  : 검색할 문자열로 시작하는지 확인할 때 사용
+  const moreRef = useRef(null);
+
+  // 외부 클릭 시 more 닫힘
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (moreRef.current && !moreRef.current.contains(e.target)) {
+        setIsMoreOpen(null);
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutside);
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    }
+  }, [])
 
   return (
     <>
-      <header className='w-full tracking-[-0.5px]'>
+      <header
+        ref={moreRef}
+        className='w-full tracking-[-0.5px] bg-white'>
         <div className="flex items-center gap-12 max-w-[1280px] m-auto  py-2">
           <Logo />
 
@@ -162,7 +180,7 @@ export default function Header() {
       </header>
 
       {isMoreOpen && <HeaderMore />}
-      {!isDetailPage && <HeaderGnb isListPage={isListPage} />}
+      {!isDetailPage && !isCreateProjectPage && <HeaderGnb isListPage={isListPage} />}
       {isShowModal && <HeaderModal isShowModal={isShowModal} setIsShowModal={setIsShowModal} />}
     </>
   )

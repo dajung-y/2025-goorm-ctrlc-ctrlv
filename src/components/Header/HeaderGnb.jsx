@@ -6,14 +6,14 @@ const Gnblist = [
   { label: '반려동물' },
 ]
 
-export default function HeaderGnb() {
+export default function HeaderGnb({ isListPage }) {
   const [isHoverCategory, setIsHoverCategory] = useState(null);
   const handleMouseLeave = () => setIsHoverCategory(null)
 
   return (
     <div
       onMouseLeave={handleMouseLeave}
-      className="sticky top-0 z-50 bg-white border-b border-[var(--color-gray-100)] tracking-[-1px] text-[#212529]">
+      className={`${isListPage ? '' : 'sticky top-0 z-50'} bg-white border-b border-[var(--color-gray-100)] tracking-[-1px] text-[#212529]`} >
       <div className="flex w-full max-w-[1280px] m-auto items-center ">
         <ul className='flex gap-10 items-center h-[52px]'>
           {

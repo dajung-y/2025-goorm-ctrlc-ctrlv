@@ -1,12 +1,13 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import HeaderGnb from './HeaderGnb'
+import HeaderMore from './HeaderMore'
 
 // 아이콘
 import logo from '../../assets/logo.svg'
 import { HiOutlineMapPin } from 'react-icons/hi2'
 import { SlArrowDown } from 'react-icons/sl'
-import HeaderMore from './HeaderMore'
+import HeaderModal from './HeaderModal'
 
 // 로고
 const Logo = () => (
@@ -69,8 +70,9 @@ const Nav = ({ isMoreOpen, setIsMoreOpen }) => (
                   </button>
                 </li>
               )
+            default:
+              return null;
           }
-
         })
       }
     </ul>
@@ -99,14 +101,19 @@ const utilItems = [
   },
 ]
 
-const Util = () => (
+const Util = ({ isShowModal, setIsShowModal }) => (
   <div className="flex items-center gap-4">
     {
       utilItems.map((item, i) => {
         switch (item.type) {
           case 'icon':
             return (
-              <button key={i}>{item.icon}</button>
+              <button
+                key={i}
+                onClick={() => setIsShowModal(!isShowModal)}
+              >
+                {item.icon}
+              </button>
             )
 
           case 'link':
@@ -124,6 +131,8 @@ const Util = () => (
                 {item.label}
               </Link>
             )
+          default:
+            return null;
         }
       })
     }
@@ -132,6 +141,13 @@ const Util = () => (
 
 export default function Header() {
   const [isMoreOpen, setIsMoreOpen] = useState(false);
+  const [isShowModal, setIsShowModal] = useState(false);
+  const location = useLocation();
+  const isListPage = location.pathname.startsWith('/list');
+  const isDetailPage = location.pathname.startsWith('/detail');
+  // 중첩 라우트라서 startsWith() 사용해야함
+  // startsWith(검색할 문자열)  : 검색할 문자열로 시작하는지 확인할 때 사용
+
   return (
     <>
       <header className='w-full tracking-[-0.5px]'>
@@ -140,12 +156,14 @@ export default function Header() {
 
           <div className="flex justify-between items-center w-full">
             <Nav isMoreOpen={isMoreOpen} setIsMoreOpen={setIsMoreOpen} />
-            <Util />
+            <Util isShowModal={isShowModal} setIsShowModal={setIsShowModal} />
           </div>
         </div>
       </header>
+
       {isMoreOpen && <HeaderMore />}
-      <HeaderGnb />
+      {!isDetailPage && <HeaderGnb isListPage={isListPage} />}
+      {isShowModal && <HeaderModal isShowModal={isShowModal} setIsShowModal={setIsShowModal} />}
     </>
   )
 }

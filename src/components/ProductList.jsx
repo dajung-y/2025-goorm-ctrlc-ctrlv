@@ -3,7 +3,7 @@ import ProductCard from "./ProductCard";
 
 export default function ProductList({ products }) {
     return (
-        <section className="max-w-[1280px] mx-auto">
+        <section className="max-w-[1280px] mx-auto mb-40">
             {/* sub category */}
             <div className="h-[10vh] flex items-center mx-[5%]">
                 <button className="bg-black text-white text-center w-[50px] h-[30px] rounded-[8px]">

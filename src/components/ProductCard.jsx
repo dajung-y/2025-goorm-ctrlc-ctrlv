@@ -1,16 +1,26 @@
 import React from 'react';
 import { FaRegHeart } from "react-icons/fa";
 import { FaStar } from "react-icons/fa";
+import { useNavigate } from 'react-router-dom';
 
 export default function ProductCard({product}) {
     console.log(product.image);
+
+    // 네비게이트 추가
+    const navigate = useNavigate();
+
+    const handleMoveDetail = () => {
+        navigate(`/detail/${product.id}`);
+    }
 
     // 찜 버튼 누르기
     const handleLike =() => {
         alert('로그인이 필요합니다');
     }
     return (
-        <div className="w-[280px] overflow-hidden bg-white cursor-pointer">
+        // detail 이동 추가
+        <div className="w-[280px] overflow-hidden bg-white cursor-pointer"
+             onClick={handleMoveDetail}> 
             {/* 이미지 영역 */}
             <div className="relative w-full h-[160px] overflow-hidden rounded-[10px]">
                 <img

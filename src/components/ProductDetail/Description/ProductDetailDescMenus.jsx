@@ -25,7 +25,7 @@ export default function ProductDetailDescMenus({
 
   return (
     // 왼쪽 상품 설명 메뉴바
-    <div className="pt-3 pb-3 shadow-[0_1px_1px_rgba(0,0,0,0.10)] sticky top-0 z-10">
+    <div className="pt-3 pb-3 bg-white shadow-[0_1px_1px_rgba(0,0,0,0.10)] sticky top-0 z-10">
       <nav className="flex flex-row items-center justify-around border-none">
         {/*  메뉴 구성들은 map을 통해 생성 */}
         {menus.map((menu, index) => (

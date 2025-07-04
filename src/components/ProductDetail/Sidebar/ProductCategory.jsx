@@ -11,7 +11,7 @@ export default function ProductCategory({category, subCategory}) {
         <span className="pr-2">&gt;</span>
 
         {/* 소분류 */}
-        <span className="product__side--sub text-[12px] px-2 py-[3px] flex flex-row items-center justify-center rounded-full bg-gray-200">
+        <span className="product__side--sub text-[12px] px-2 py-[3px] flex flex-row items-center justify-center rounded-full bg-gray-200 cursor-pointer">
           <span className="text-[#00C4C4]">#</span>
 
           {/* 소분류 이름 */}

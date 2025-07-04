@@ -140,13 +140,13 @@ export default function ProductDetailSide({ product }) {
         }`}
       >
         {/* 옵션 드롭다운 */}
-        <div className="sticky top-20 z-10 bg-white">
+        <div className="sticky top-20 z-999 bg-white">
           <ProductDropDown items={product.options} />
         </div>
         <div className="flex-grow"></div>
         {/* 상품 좋아요, 구매, 선물 버튼 */}
         <div
-          className={`mt-4  ${isSticky ? "mt-auto sticky bottom-10 z-20" : ""}`}
+          className={`mt-4  ${isSticky ? "mt-auto sticky bottom-10 z-10" : ""}`}
         >
           <ProductBuyMenus liked={product.likedCount} />
         </div>
